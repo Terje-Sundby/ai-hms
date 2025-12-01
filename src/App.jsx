@@ -7,15 +7,15 @@ import {
   BookOpen, 
   MessageSquare,
   Menu,
-  X
+  X,
+  Lock 
 } from 'lucide-react';
 
-// Endring: Fjernet ./config importen midlertidig for å sikre at appen kjører
-// Vi legger heller inn dataene direkte her for å unngå import-feil
+// --- DATA OG INNHOLD (Rediger dette for å endre tekst) ---
 
 const companyName = "Din Bedrift AS"; 
 
-const disclaimer = "Denne portalen er et verktøy for bevisstgjøring og veiledning. Innholdet utgjør ikke juridisk rådgivning. Bedriften og brukerne er selv ansvarlige for at all bruk av AI skjer i samsvar med gjeldende lover (f.eks. GDPR) og interne retningslinjer. Leverandøren fraskriver seg ansvar for feilbruk eller juridiske konsekvenser.";
+const disclaimer = "Denne portalen er et internt støtteverktøy for bevisstgjøring rundt bruk av AI. Innholdet, inkludert vurderinger av verktøy og dataklassifisering, er basert på generelle råd og utgjør ikke juridisk rådgivning. Bedriften og den enkelte ansatte er selvstendig ansvarlige for å sikre at all bruk av AI skjer i samsvar med gjeldende lovverk (f.eks. GDPR, Åndsverkloven) og bedriftens interne retningslinjer. Leverandøren av portalen fraskriver seg ethvert ansvar for direkte eller indirekte tap som følge av bruk av informasjonen her.";
 
 const policies = [
   {
@@ -23,7 +23,7 @@ const policies = [
     title: "Sensitive Personopplysninger (GDPR)",
     status: "forbidden",
     description: "Det er strengt forbudt å legge inn navn, fødselsnummer, helseopplysninger eller andre identifiserbare data i offentlige AI-modeller.",
-    icon:  ShieldCheck // Bruker ShieldCheck som default ikon
+    icon: Lock
   },
   {
     id: 2,
@@ -66,7 +66,7 @@ const prompts = [
   }
 ];
 
-// --- KOMPONENTER ---
+// --- APP KOMPONENTER (Ikke endre under her) ---
 
 const Header = ({ mobileMenuOpen, setMobileMenuOpen }) => (
   <header className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
@@ -181,29 +181,6 @@ const PromptCard = ({ prompt }) => {
   );
 };
 
-const Hero = () => (
-  <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white py-16 px-4">
-    <div className="max-w-4xl mx-auto text-center">
-      <h1 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
-        Sikker bruk av AI i <span className="text-blue-400">{companyName}</span>
-      </h1>
-      <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-        Din guide til å bruke kunstig intelligens effektivt, trygt og i tråd med selskapets retningslinjer.
-      </p>
-      <div className="flex flex-wrap justify-center gap-4">
-        <a href="#retningslinjer" className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">
-          Les reglene <ShieldCheck size={18} />
-        </a>
-        <a href="#prompts" className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">
-          Hent prompts <MessageSquare size={18} />
-        </a>
-      </div>
-    </div>
-  </div>
-);
-
-// --- MAIN APP ---
-
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -217,7 +194,25 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       
-      <Hero />
+      {/* HERO SEKSJON */}
+      <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
+            Sikker bruk av AI i <span className="text-blue-400">{companyName}</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+            Din guide til å bruke kunstig intelligens effektivt, trygt og i tråd med selskapets retningslinjer.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#retningslinjer" className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">
+              Les reglene <ShieldCheck size={18} />
+            </a>
+            <a href="#prompts" className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">
+              Hent prompts <MessageSquare size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
         
@@ -314,7 +309,6 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="mb-4">© 2025 {companyName}. Internt bruk.</p>
           
-          {/* DISCLAIMER HER */}
           <div className="bg-slate-800 p-4 rounded-lg text-xs text-slate-500 max-w-3xl mx-auto leading-relaxed border border-slate-700">
             <strong>Juridisk ansvarsfraskrivelse:</strong> {disclaimer}
           </div>
