@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
   ShieldCheck, 
-  Lock, 
   Search, 
   Copy, 
   CheckCircle, 
@@ -11,9 +10,12 @@ import {
   X
 } from 'lucide-react';
 
-// --- DATA MOCKUP (Endre dette for hver kunde) ---
+// Endring: Fjernet ./config importen midlertidig for å sikre at appen kjører
+// Vi legger heller inn dataene direkte her for å unngå import-feil
 
 const companyName = "Din Bedrift AS"; 
+
+const disclaimer = "Denne portalen er et verktøy for bevisstgjøring og veiledning. Innholdet utgjør ikke juridisk rådgivning. Bedriften og brukerne er selv ansvarlige for at all bruk av AI skjer i samsvar med gjeldende lover (f.eks. GDPR) og interne retningslinjer. Leverandøren fraskriver seg ansvar for feilbruk eller juridiske konsekvenser.";
 
 const policies = [
   {
@@ -21,7 +23,7 @@ const policies = [
     title: "Sensitive Personopplysninger (GDPR)",
     status: "forbidden",
     description: "Det er strengt forbudt å legge inn navn, fødselsnummer, helseopplysninger eller andre identifiserbare data i offentlige AI-modeller.",
-    icon: Lock
+    icon:  ShieldCheck // Bruker ShieldCheck som default ikon
   },
   {
     id: 2,
@@ -311,7 +313,13 @@ export default function App() {
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="mb-4">© 2025 {companyName}. Internt bruk.</p>
-          <p className="text-xs">Utviklet basert på "The AI-Guide Framework" av Terje Sundby.</p>
+          
+          {/* DISCLAIMER HER */}
+          <div className="bg-slate-800 p-4 rounded-lg text-xs text-slate-500 max-w-3xl mx-auto leading-relaxed border border-slate-700">
+            <strong>Juridisk ansvarsfraskrivelse:</strong> {disclaimer}
+          </div>
+
+          <p className="text-xs mt-6 opacity-50">Utviklet basert på "The AI-Guide Framework" av Terje Sundby.</p>
         </div>
       </footer>
     </div>
