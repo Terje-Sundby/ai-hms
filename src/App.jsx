@@ -3,7 +3,7 @@ import {
   ShieldCheck, Search, Copy, CheckCircle, BookOpen, MessageSquare,
   Menu, X, Lock, AlertTriangle, ChevronDown, ChevronUp, LogOut,
 } from 'lucide-react';
-import { companyName, disclaimer, policies, tools, prompts } from './config';
+import { companyName, disclaimer, policies, tools, prompts, lastUpdated } from './config';
 import { supabase } from './supabaseClient';
 import LoginPage from './LoginPage';
 
