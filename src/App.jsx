@@ -171,6 +171,9 @@ export default function App() {
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
             Din guide til å bruke kunstig intelligens effektivt, trygt og i tråd med selskapets retningslinjer.
           </p>
+          <p className="text-blue-300 text-sm mb-6 opacity-75">
+  Innhold sist oppdatert: <span className="font-semibold text-white">{lastUpdated}</span>
+</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#retningslinjer" className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">Les reglene <ShieldCheck size={18} /></a>
             <a href="#prompts" className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-bold transition flex items-center gap-2">Hent prompts <MessageSquare size={18} /></a>
