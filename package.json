@@ -9,11 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "lucide-react": "^0.555.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
+"dependencies": {
+  "@supabase/supabase-js": "^2.49.1",
+  "lucide-react": "...",
+  "react": "...",
+  "react-dom": "..."
+}, 
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.5",
