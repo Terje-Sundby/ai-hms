@@ -4,7 +4,7 @@
 
 export const companyName = "Din Bedrift AS";
 export const companyLogo = null; // Legg inn URL til logo her, eller null for ikon
-
+export const lastUpdated = "Februar 2026";
 export const disclaimer = "Denne portalen er et internt støtteverktøy for bevisstgjøring rundt bruk av AI. Innholdet, inkludert vurderinger av verktøy og dataklassifisering, er basert på generelle råd og utgjør ikke juridisk rådgivning. Bedriften og den enkelte ansatte er selvstendig ansvarlige for å sikre at all bruk av AI skjer i samsvar med gjeldende lovverk (f.eks. GDPR, Åndsverkloven) og bedriftens interne retningslinjer. Leverandøren av portalen fraskriver seg ethvert ansvar for direkte eller indirekte tap som følge av bruk av informasjonen her.";
 
 export const policies = [
